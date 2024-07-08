@@ -24,7 +24,7 @@ module "storage" {
 
 terraform {
  backend "gcs" {
-   bucket  = "tf-bucket-232453"
+   bucket  = var.bucket
   prefix  = "terraform/state"
  }
 }
@@ -54,7 +54,7 @@ module "vpc" {
     ]
 }
 resource "google_compute_firewall" "tf-firewall" {
- name    = "tf-firewall"
+ name    = var.firewall
 network = "projects/qwiklabs-gcp-01-fd9ad5b2add6/global/networks/tf-vpc-108109"
  
  allow {

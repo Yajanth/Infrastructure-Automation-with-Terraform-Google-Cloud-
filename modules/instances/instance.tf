@@ -1,5 +1,5 @@
 resource "google_compute_instance" "tf-instance-1" {
- name         = "tf-instance-1"
+ name         = var.instance1
  machine_type = "e2-micro"
  zone         = var.zone
 metadata_startup_script = <<-EOT
@@ -10,7 +10,7 @@ allow_stopping_for_update = true
  
  boot_disk {
    initialize_params {
-     image = "debian-cloud/debian-11"
+     image = var.
    }
  }
  
@@ -22,7 +22,7 @@ allow_stopping_for_update = true
 
  
 resource "google_compute_instance" "tf-instance-2" {
- name         = "tf-instance-2"
+ name         = var.instance2 
  machine_type = "e2-micro"
  zone         = var.zone
 metadata_startup_script = <<-EOT
@@ -35,12 +35,12 @@ allow_stopping_for_update = true
  
  boot_disk {
    initialize_params {
-     image = "debian-cloud/debian-11"
+     image = var.
    }
  }
  
  network_interface {
-  network = "default"
+  network = var.vpc_name
   subnetwork="subnet-02"
  }
 }
