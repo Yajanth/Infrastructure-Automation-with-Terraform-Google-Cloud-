@@ -10,7 +10,7 @@ allow_stopping_for_update = true
  
  boot_disk {
    initialize_params {
-     image = var.
+     image = var.compute_disk_image
    }
  }
  
@@ -35,7 +35,7 @@ allow_stopping_for_update = true
  
  boot_disk {
    initialize_params {
-     image = var.
+     image = var.compute_disk_image
    }
  }
  

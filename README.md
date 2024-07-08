@@ -17,7 +17,7 @@ Creates VM instances based on the configurations in ./modules/instances.
 - Storage Module
 Creates a Google Cloud Storage bucket for the remote backend in ./modules/storage.
 
--VPC Module
+- VPC Module
 Utilizes the Terraform Google Network module to create VPC and subnets.
-Firewall
+- Firewall
 Sets up a firewall rule to allow TCP traffic on port 80.
