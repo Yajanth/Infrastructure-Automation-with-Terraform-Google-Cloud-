@@ -1,12 +1,9 @@
 resource "google_compute_instance" "tf-instance-1" {
  name         = var.instance1
- machine_type = "e2-micro"
+ machine_type = var.machine_type
  zone         = var.zone
-metadata_startup_script = <<-EOT
-       #!/bin/bash
-   EOT
-allow_stopping_for_update = true
- 
+ metadata_startup_script = var.metadata_startup_script
+ allow_stopping_for_update = var.allow_stopping_for_update
  
  boot_disk {
    initialize_params {
@@ -15,7 +12,7 @@ allow_stopping_for_update = true
  }
  
  network_interface {
-  network = "tf-vpc-108109"
+  network = var.vpc_name
   subnetwork="subnet-01"
  }
 }
@@ -23,15 +20,10 @@ allow_stopping_for_update = true
  
 resource "google_compute_instance" "tf-instance-2" {
  name         = var.instance2 
- machine_type = "e2-micro"
+ machine_type = var.machine_type
  zone         = var.zone
-metadata_startup_script = <<-EOT
-
-      #!/bin/bash
-
-  EOT
-
-allow_stopping_for_update = true
+ metadata_startup_script = var.metadata_startup_script
+ allow_stopping_for_update = var.allow_stopping_for_update
  
  boot_disk {
    initialize_params {
